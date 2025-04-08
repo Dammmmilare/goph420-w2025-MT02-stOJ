@@ -1,4 +1,4 @@
-# Midterm 1
+# Midterm 2
 # GOPH 420 – Inversion and Parameter Estimation for Geophysicist.
 *Semester:* W2025
 *Instructor:* B. Karchewski
