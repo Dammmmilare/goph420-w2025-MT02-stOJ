@@ -25,7 +25,7 @@ git clone <https://github.com/USER/goph420-w2025-MT02-stOJ.git>
 and you may need to enter your GitHub password.
 If you installed the GitHub CLI, you can use:
 gh repo clone USER/goph420-w2025-MT02-stOJ.git.
-4. You should now have a directory called goph420-w2025-MT01-stOJ.git,
+4. You should now have a directory called goph420-w2025-MT02-stOJ.git,
 which you can check by entering:
 ls
 to list the directory contents and make sure that you see it.
