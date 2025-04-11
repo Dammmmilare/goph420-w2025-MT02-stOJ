@@ -1,10 +1,12 @@
+# Question 3 - Nonlinear Least Squares
 import numpy as np
 import matplotlib.pyplot as plt 
 
 # This code implements two optimization methods: Gradient Descent and Quasi-Newton method.
 # It uses the following constants and functions to perform the optimization.
 
-# Given constants
+# Part (a) Constants
+# The constants are defined as follows:
 x0 = np.array([0.0, 0.0])
 x1 = np.array([4.0, 4.0])
 R0 = 4.0
@@ -22,10 +24,28 @@ def J(a):
 
 def e(a):
     return np.array([f(a, x0) - R0, f(a, x1) - R1])
+print("Question 3a: steps in script form")
+print("\n")
+print("""def f(a, xi):
+    return np.linalg.norm(a - xi)
+
+def J(a):
+    f0 = f(a, x0)
+    f1 = f(a, x1)
+    j0 = (a - x0) / f0
+    j1 = (a - x1) / f1
+    return np.vstack((j0, j1))
+
+def e(a):
+    return np.array([f(a, x0) - R0, f(a, x1) - R1])""")
+print("\n")
+
+# part (b) Gradient Descent
+# This method uses the negative of the Jacobian matrix to update the solution.
 
 def gradient_descent(a0, h, iterations):
     a = a0.copy()
-    print("Gradient Descent")
+    print("Question 3b:Gradient Descent")
     for i in range(iterations):
         Jk = J(a)
         ek = e(a)
@@ -36,9 +56,12 @@ def gradient_descent(a0, h, iterations):
         a = a_new
     return a
 
+
+#part (c) Quasi-Newton method
+# This method uses the inverse of the Jacobian matrix to update the solution.
 def quasi_newton(a0, h, iterations):
     a = a0.copy()
-    print("\nQuasi-Newton")
+    print("\nQuestion 3c: Quasi-Newton")
     for i in range(iterations):
         Jk = J(a)
         ek = e(a)
@@ -57,3 +80,11 @@ gradient_descent(a0_gd, h=-0.25, iterations=5)
 # Run quasi-Newton
 a0_qn = np.array([4.0, 2.0])
 quasi_newton(a0_qn, h=1.0, iterations=5)
+
+# Part (d) Comparison
+print("\nQuestion 3d: Comparison Answers")
+print("The Quasi-Newton method converges faster because:")
+
+print("1. Achieves convergence in fewer steps, even though each step involves more calculations.")
+print("2. Relies on an approximate second-derivative matrix (JᵀJ) to improve the optimization path")
+print("3. Accounts for local changes in curvature, offering more adaptive updates than gradient descent")
