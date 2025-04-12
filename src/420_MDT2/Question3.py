@@ -1,6 +1,5 @@
 # Question 3 - Nonlinear Least Squares
 import numpy as np
-import matplotlib.pyplot as plt 
 
 # This code implements two optimization methods: Gradient Descent and Quasi-Newton method.
 # It uses the following constants and functions to perform the optimization.
